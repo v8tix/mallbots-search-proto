@@ -58,7 +58,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/pbGetOrderResponse"
+              "$ref": "#/definitions/pbGetSearchOrderResponse"
             }
           },
           "default": {
@@ -147,7 +147,7 @@
         }
       }
     },
-    "pbGetOrderResponse": {
+    "pbGetSearchOrderResponse": {
       "type": "object",
       "properties": {
         "order": {
