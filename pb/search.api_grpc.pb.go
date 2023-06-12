@@ -28,7 +28,7 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type SearchServiceClient interface {
 	SearchOrders(ctx context.Context, in *SearchOrdersRequest, opts ...grpc.CallOption) (*SearchOrdersResponse, error)
-	GetOrder(ctx context.Context, in *GetOrderRequest, opts ...grpc.CallOption) (*GetSearchOrderResponse, error)
+	GetOrder(ctx context.Context, in *GetSearchOrderRequest, opts ...grpc.CallOption) (*GetSearchOrderResponse, error)
 }
 
 type searchServiceClient struct {
@@ -48,7 +48,7 @@ func (c *searchServiceClient) SearchOrders(ctx context.Context, in *SearchOrders
 	return out, nil
 }
 
-func (c *searchServiceClient) GetOrder(ctx context.Context, in *GetOrderRequest, opts ...grpc.CallOption) (*GetSearchOrderResponse, error) {
+func (c *searchServiceClient) GetOrder(ctx context.Context, in *GetSearchOrderRequest, opts ...grpc.CallOption) (*GetSearchOrderResponse, error) {
 	out := new(GetSearchOrderResponse)
 	err := c.cc.Invoke(ctx, SearchService_GetOrder_FullMethodName, in, out, opts...)
 	if err != nil {
@@ -62,7 +62,7 @@ func (c *searchServiceClient) GetOrder(ctx context.Context, in *GetOrderRequest,
 // for forward compatibility
 type SearchServiceServer interface {
 	SearchOrders(context.Context, *SearchOrdersRequest) (*SearchOrdersResponse, error)
-	GetOrder(context.Context, *GetOrderRequest) (*GetSearchOrderResponse, error)
+	GetOrder(context.Context, *GetSearchOrderRequest) (*GetSearchOrderResponse, error)
 	mustEmbedUnimplementedSearchServiceServer()
 }
 
@@ -73,7 +73,7 @@ type UnimplementedSearchServiceServer struct {
 func (UnimplementedSearchServiceServer) SearchOrders(context.Context, *SearchOrdersRequest) (*SearchOrdersResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SearchOrders not implemented")
 }
-func (UnimplementedSearchServiceServer) GetOrder(context.Context, *GetOrderRequest) (*GetSearchOrderResponse, error) {
+func (UnimplementedSearchServiceServer) GetOrder(context.Context, *GetSearchOrderRequest) (*GetSearchOrderResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetOrder not implemented")
 }
 func (UnimplementedSearchServiceServer) mustEmbedUnimplementedSearchServiceServer() {}
@@ -108,7 +108,7 @@ func _SearchService_SearchOrders_Handler(srv interface{}, ctx context.Context, d
 }
 
 func _SearchService_GetOrder_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetOrderRequest)
+	in := new(GetSearchOrderRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -120,7 +120,7 @@ func _SearchService_GetOrder_Handler(srv interface{}, ctx context.Context, dec f
 		FullMethod: SearchService_GetOrder_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SearchServiceServer).GetOrder(ctx, req.(*GetOrderRequest))
+		return srv.(SearchServiceServer).GetOrder(ctx, req.(*GetSearchOrderRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }

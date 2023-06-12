@@ -66,7 +66,7 @@ func local_request_SearchService_SearchOrders_0(ctx context.Context, marshaler r
 }
 
 func request_SearchService_GetOrder_0(ctx context.Context, marshaler runtime.Marshaler, client SearchServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq GetOrderRequest
+	var protoReq GetSearchOrderRequest
 	var metadata runtime.ServerMetadata
 
 	var (
@@ -92,7 +92,7 @@ func request_SearchService_GetOrder_0(ctx context.Context, marshaler runtime.Mar
 }
 
 func local_request_SearchService_GetOrder_0(ctx context.Context, marshaler runtime.Marshaler, server SearchServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq GetOrderRequest
+	var protoReq GetSearchOrderRequest
 	var metadata runtime.ServerMetadata
 
 	var (

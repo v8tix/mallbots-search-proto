@@ -6,7 +6,7 @@ import "google/protobuf/timestamp.proto";
 
 service SearchService {
   rpc SearchOrders(SearchOrdersRequest) returns (SearchOrdersResponse) {}
-  rpc GetOrder(GetOrderRequest) returns (GetSearchOrderResponse) {}
+  rpc GetOrder(GetSearchOrderRequest) returns (GetSearchOrderResponse) {}
 }
 
 message Order {
@@ -47,7 +47,7 @@ message SearchOrdersResponse {
   string next = 2;
 }
 
-message GetOrderRequest {
+message GetSearchOrderRequest {
   string id = 1;
 }
 message GetSearchOrderResponse {
