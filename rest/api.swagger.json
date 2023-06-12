@@ -83,7 +83,7 @@
     }
   },
   "definitions": {
-    "OrderItem": {
+    "SearchOrderItem": {
       "type": "object",
       "properties": {
         "productId": {
@@ -151,11 +151,11 @@
       "type": "object",
       "properties": {
         "order": {
-          "$ref": "#/definitions/pbOrder"
+          "$ref": "#/definitions/pbSearchOrder"
         }
       }
     },
-    "pbOrder": {
+    "pbSearchOrder": {
       "type": "object",
       "properties": {
         "orderId": {
@@ -171,7 +171,7 @@
           "type": "array",
           "items": {
             "type": "object",
-            "$ref": "#/definitions/OrderItem"
+            "$ref": "#/definitions/SearchOrderItem"
           }
         },
         "total": {
@@ -205,7 +205,7 @@
           "type": "array",
           "items": {
             "type": "object",
-            "$ref": "#/definitions/pbOrder"
+            "$ref": "#/definitions/pbSearchOrder"
           }
         },
         "next": {
